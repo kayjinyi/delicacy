@@ -13,8 +13,8 @@ header {
 }
 
 h2 {
-    text-align: center;
     font-size: 30px;
+    padding: 5px;
 }
 
 section {
@@ -39,16 +39,23 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: end;
-    margin: 0 50px;
+    margin: 0 30px;
 }
 
-button {
-    font-size: 20px;
+#random, #recipe {
+    font-size: 18px;
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 5px;
     background: rgb(132, 101, 48);
     color: white;
+}
+
+input {
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
 }
 
 aside {
@@ -65,4 +72,23 @@ aside {
 .aside2 {
     border: 2px solid black;
     height: 30vh; width: 25vw;
+}
+
+.time {
+    margin: auto;
+    border: 2px solid black;
+    height: 15vh; width: 20vw;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+}
+
+#min, #sec, #start {
+    font-size: 18px;
+    margin: 10px;
+    padding: 5px 20px;
+    background: rgb(132, 101, 48);
+    color: white;
 }
