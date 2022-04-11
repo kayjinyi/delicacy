@@ -7,17 +7,22 @@ const options = {
     }
 };
 
-// TODO: make this take in info from user
-var searchedFood = "burger";
+// initialized variables
+var recipeButton = document.getElementById("recipe");
+var searchedFood = "";
+
+
 
 function getRecipe() {
     console.log('tasty recipe function');
+    // takes user input value for food search
+    searchedFood = document.getElementById("food").value;
 
     // hits the api for recipe info
     fetch(`https://tasty.p.rapidapi.com/recipes/list?from=0&size=5&q=${searchedFood}`, options)
         .then(response => response.json())
         .then(response => {
-            // console.log(response.results)
+            // loops through results to show names and url's
             for (let i = 0; i < response.results.length; i++) {
                 const element = response.results[i];
                 console.log(element.name, element.video_url)
@@ -29,5 +34,5 @@ function getRecipe() {
         .catch(err => console.error(err));
 }
 
-getRecipe();
+recipeButton.addEventListener("click", getRecipe);
 
