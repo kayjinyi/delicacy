@@ -1,5 +1,4 @@
-console.log("linked")
-
+// api connection details
 const options = {
     method: 'GET',
     headers: {
@@ -8,16 +7,22 @@ const options = {
     }
 };
 
+// TODO: make this take in info from user
+var searchedFood = "burger";
+
 function getRecipe() {
     console.log('tasty recipe function');
 
-    fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=5&tags=under_30_minutes', options)
+    // hits the api for recipe info
+    fetch(`https://tasty.p.rapidapi.com/recipes/list?from=0&size=5&q=${searchedFood}`, options)
         .then(response => response.json())
         .then(response => {
             // console.log(response.results)
             for (let i = 0; i < response.results.length; i++) {
                 const element = response.results[i];
-                console.log(element, element.video_url)
+                console.log(element.name, element.video_url)
+
+                // TODO: make a placeholder link/image for video_url results that show up null
 
             }
         })
