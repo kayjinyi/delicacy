@@ -12,7 +12,7 @@ var recipeButton = document.getElementById("recipe");
 var searchedFood = "";
 
 
-
+// function that gets recipe data from tasty api
 function getRecipe() {
     console.log('tasty recipe function');
     // takes user input value for food search
@@ -25,9 +25,8 @@ function getRecipe() {
             // loops through results to show names and url's
             for (let i = 0; i < response.results.length; i++) {
                 const element = response.results[i];
-                console.log(element.name, element.video_url)
-
-                // TODO: make a placeholder link/image for video_url results that show up null
+                // console.log(element.name, element.video_url)
+                console.log(element.name, element.instructions)
 
             }
         })
@@ -36,3 +35,7 @@ function getRecipe() {
 
 recipeButton.addEventListener("click", getRecipe);
 
+// fucntion that displays the recipe info
+function displayRecipe() {
+    //stuff here
+}
