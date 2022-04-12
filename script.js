@@ -60,7 +60,7 @@ fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=5&tags=under_10_min
         localStorage.setItem("favorites", JSON.stringify(favorites));
     
         var displayfavorite = function(){
-        searchTerm.innerHTML = "";
+        favoriteTerm.innerHTML = "";
         for( let i =0; i< favorites.length; i++){
             var list = document.createElement("li");
             list.textContent = favorites[i];
@@ -69,7 +69,7 @@ fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=5&tags=under_10_min
                 var favorites = event.target.textContent
                 getRecipte(recipe);   
             })
-            searchTerm.append(list);
+            favoriteTerm.append(list);
         }  
         }
     // displayfavorite();
