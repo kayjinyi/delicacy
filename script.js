@@ -113,4 +113,38 @@ fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=5&tags=under_10_min
             searchTerm.append(list);
         }  
         }
-    // displayfavorite();
+
+
+        
+    var timeLeftEl = $('#timeLeft');
+var timeInEl = $('#timerIn')
+var startBtn = $('#startBtn')
+startBtn.on('click', startBtn, function(e){
+    e.preventDefault()
+    startTimer()
+});
+var timerCount = 0;
+
+function startTimer() {
+    console.log('started timer')
+    timerCount = 60* timeInEl.val();
+    var minutes = Math.floor(timerCount/60)
+    var seconds = Math.floor(timerCount)
+    timeLeftEl.text(minutes + " minutes left " + (seconds - minutes*60) + " seconds ");
+    timer = setInterval(function() {
+        if (timerCount==0) {
+           return
+          }
+        minutes = Math.floor(timerCount/60)
+        seconds = Math.floor(timerCount)
+        timerCount--;
+        timeLeftEl.text(minutes + " minutes left " + (seconds - minutes*60) + " seconds ");
+      // Tests if time has run out
+      if (timerCount === 0) {
+        // Clears interval
+        timeLeftEl.text("done");
+        clearInterval(timer);
+      }
+    }, 1000);
+   }
+   
