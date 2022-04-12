@@ -1,7 +1,9 @@
-$(document).ready(function () {
-    $('.modal').modal();
-});
-
+var apiUrl = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityname + '&appid=' + APIKey;
+console.log(apiUrl);
+fetch(apiUrl).then(function(response){
+    return response.json()
+}).then(function(readableData){
+    console.log(readableData.)}
 // api connection details
 const options = {
     method: 'GET',
@@ -57,22 +59,54 @@ fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=5&tags=under_10_min
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
 
-    var savedFavorites = function(recipe){
-        console.log(recipe);
-        favorites.push(recipe);
-        localStorage.setItem("favorites", JSON.stringify(favorites));
+    // var savedFavorites = function(recipe){
+    //     console.log(recipe);
+    //     favorites.push(recipe);
+    //     localStorage.setItem("favorites", JSON.stringify(favorites));
     
-        var displayfavorite = function(){
-        favoriteTerm.innerHTML = "";
-        for( let i =0; i< favorites.length; i++){
-            var list = document.createElement("li");
-            list.textContent = favorites[i];
+    //     var displayfavorite = function(){
+    //     favoriteTerm.innerHTML = "";
+    //     for( let i =0; i< favorites.length; i++){
+    //         var list = document.createElement("li");
+    //         list.textContent = favorites[i];
 
-            list.addEventListener("click",function(event){
-                var favorites = event.target.textContent
-                getRecipte(recipe);   
-            })
-            favoriteTerm.append(list);
-        }  
-        }
-    // displayfavorite();
+    //         list.addEventListener("click",function(event){
+    //             var favorites = event.target.textContent
+    //             getRecipte(recipe);   
+    //         })
+    //         favoriteTerm.append(list);
+    //     }  
+    //     }
+    // // displayfavorite();
+    var timeLeftEl = $('#timeLeft');
+var timeInEl = $('#timerIn')
+var startBtn = $('#startBtn')
+startBtn.on('click', startBtn, function(e){
+    e.preventDefault()
+    startTimer()
+});
+var timerCount = 0;
+
+function startTimer() {
+    console.log('started timer')
+    timerCount = 60* timeInEl.val();
+    var minutes = Math.floor(timerCount/60)
+    var seconds = Math.floor(timerCount)
+    timeLeftEl.text(minutes + " minutes left " + (seconds - minutes*60) + " seconds ");
+    timer = setInterval(function() {
+        if (timerCount==0) {
+           return
+          }
+        minutes = Math.floor(timerCount/60)
+        seconds = Math.floor(timerCount)
+        timerCount--;
+        timeLeftEl.text(minutes + " minutes left " + (seconds - minutes*60) + " seconds ");
+      // Tests if time has run out
+      if (timerCount === 0) {
+        // Clears interval
+        timeLeftEl.text("done");
+        clearInterval(timer);
+      }
+    }, 1000);
+   }
+   
