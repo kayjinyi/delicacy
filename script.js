@@ -10,6 +10,7 @@ const options = {
 
 // initialized variables
 var recipeButton = document.getElementById("recipe");
+var recipeName = "";
 var searchedFood = "";
 var element = "";
 var recipeContainer = document.getElementById("recipe-container");
@@ -25,25 +26,40 @@ function getRecipe() {
     fetch(`https://tasty.p.rapidapi.com/recipes/list?from=0&size=5&q=${searchedFood}`, options)
         .then(response => response.json())
         .then(response => {
-            //add start row
-            content += '<div class="row">'
+
+            // makes the card for the instructions span to be in
+            var recipeSpan = [];
+            
             // loops through results to show names and url's
             for (let i = 0; i < response.results.length; i++) {
-                var content = "";
                 element = response.results[i];
                 // console.log(element.name, element.video_url)
                 console.log(element.name, element.instructions)
-
-                // displayRecipe();
-
-            content += '<div class="col s12 m5">'
-            content += '<div class="card-panel teal">'
-            content += `<span class="white-text">recipe goes here, probably in an ordered list</span>`
-            content += '</div>';
-            content += '</div>';
-            recipeContainer.innerHTML += content;
+                
+                
+                // makes list to click to show cards/modals w recipes TODO: make them clickable
+                var content = `<h4 class="recipeName">${element.name}</h4>`;
+                
+                recipeContainer.innerHTML += content;
+                
+                recipeName = document.getElementsByClassName("recipeName");
+                
+                recipeName[i].addEventListener("click", displayRecipe)
+                // TODO: go through instructions and display them on cards/modals
+                element.instructions.forEach(element => {
+                    //create card to append on click of food name
+                    // console.log(element.display_text)
+                    
+                    // TODO: make it an ordered list instead of a span
+                    
+                    recipeSpan.push(`<li class="white-text">${element.display_text}</li>`)
+                    console.log(element.display_text)
+                })
             }
-            content += '</div>';
+            var instructionsList = recipeSpan.join("====")
+            // makes the card for the recipe to be sidplayed on
+            var recipeCard = `<div class="row"><div class="col s12 m5"><div class="card-panel teal"><ol>${instructionsList}</ol></div></div></div>`
+            // console.log(recipeSpan)
         })
         .catch(err => console.error(err));
 }
@@ -52,20 +68,9 @@ recipeButton.addEventListener("click", getRecipe);
 
 
 // function that displays the recipe info
-// function displayRecipe() {
-//     element.forEach(function(result, i) {
-//         if (i == 0) {
-//             //add start row
-//             content += '<div class="row">'
-//         }
-//         content += '<div class="col s12 m5">'
-//         content += '<div class="card-panel teal">'
-//         content += '<span class="white-text">recipe goes here, probably in an ordered list</span>'  
-//     })
-
-//     content += '</div>';
-//     content += '</div>';
-// }
+function displayRecipe() {
+    console.log("woohoo")
+}
 
 // var FavoriteBtnEl = document.querySelector('#favoritefood');
 // var favoriteTerm = document.querySelector('#listGroup');
