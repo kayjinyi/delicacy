@@ -1,94 +1,31 @@
-* {
+body {
+    padding: 0 180px;
+}
+
+h2, h3 {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    background: rgb(242, 225, 196);
 }
 
-header {
-    height: 7vh;
-    text-align: center;
-    font-size: 25px;
-}
-
-h2 {
-    font-size: 30px;
+h3 {
     padding: 5px;
 }
 
-section {
-    float: left;
-    margin-left: 150px;
+#nav {
+    height: 10vh;
 }
 
-.section1 {
-    display: flex;
-    justify-content: space-evenly;
-    border: 2px solid black;
-    height: 40vh; width: 50vw;
-    margin: 10px 0;
+#pic {
+    height: 40vh;
 }
 
-.section2 {
-    border: 2px solid black;
-    height: 50vh; width: 50vw;
+#recipew {
+    height: 50vh;
 }
 
-.btn {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    margin: 0 30px;
+#favorite {
+    height: 50vh;
 }
 
-#random, #recipe {
-    font-size: 18px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 5px;
-    background: rgb(132, 101, 48);
-    color: white;
-}
-
-input {
-    font-size: 18px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 5px;
-}
-
-aside {
-    float: right;
-    margin-right: 150px;
-}
-
-.aside1 {
-    border: 2px solid black;
-    height: 60vh; width: 25vw;
-    margin: 10px 0;
-}
-
-.aside2 {
-    border: 2px solid black;
-    height: 30vh; width: 25vw;
-}
-
-.time {
-    margin: auto;
-    border: 2px solid black;
-    height: 15vh; width: 20vw;
-}
-
-.timer {
-    display: flex;
-    justify-content: center;
-}
-
-#min, #sec, #start {
-    font-size: 18px;
-    margin: 10px;
-    padding: 5px 20px;
-    background: rgb(132, 101, 48);
-    color: white;
+#timer {
+    height: 40vh;
 }

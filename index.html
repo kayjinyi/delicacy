@@ -4,53 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delicacy - What to eat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
+    <title>Delicacy - What to eat</title>
 </head>
-<body>
-    <header>
-        <h1>Delicacy</h1>
-    </header>
-    <section>
-        <div class="section1">
-            <img src="https://placedog.net/400" alt="dog">
-            <div class="btn">
-                <button id="random">Random Food</button>
-                <form>
-                    <input type="text" id="food" placeholder="Food name"><br>
-                </form>
-                <button id="recipe">Search Recipe</button>
-                <button id="favoritefood">Favorite</button>
+<body class="amber lighten-5">
+    <div class="col" id="nav">
+        <h2 class="center blue-text text-lighten-1">Delicacy</h2>
+    </div>
+    <div class="row">
+        <div class="col s8">
+            <div class="col s12 valign-wrapper">
+                <div class="col s9 center-align" id="pic">
+                    <img class="responsive-img" src="https://picsum.photos/400/300">
+                </div>
+                <div class="col s3 valign">
+                    <a class="waves-effect waves-light btn orange lighten-1" id="random btn">Random Pic</a>
+                    <input class="input-field col s10" placeholder="Search for food" id="food" type="text" class="validate">
+                    <label for="food name"></label>
+                    <a class="waves-effect waves-light btn orange lighten-1" id="recipe">View Recipe</a>
+                </div>
+            </div>
+            <div class="col s12" id="recipew">
+                <h3 class="grey-text text-darken-1">Recipe</h3>
+                <ul>
+                    <li><a class="modal-trigger" href="#modal1">1 modal</a>
+                    <div id="modal1" class="modal modal-fixed-footer">
+                        <div class="modal-content">
+                          <h4>Header</h4>
+                          <p>A bunch of text</p>
+                        </div>
+                    </div>
+                    </li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                </ul>
             </div>
         </div>
-        <div class="section2">
-            <h2>Recipe</h2>
-        </div>
-    </section>
-    <aside>
-        <div class="aside1">
-            <h2>Favorite Recipes</h2>
-            <ul class="list-group" id ="listGroup"> 
-
-            </ul>
-        </div>
-        <div class="aside2">
-            <h2>Timer</h2>
-            <div class="time">
+        <div class="col s4">
+            <div class="col s12" id="favorite">
+                <h3 class="grey-text text-darken-1">Favorite</h3>
+                <ul>
+                    <li><a class="modal-trigger" href="#modal11">1 modal</a>
+                        <div id="modal11" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                              <h4>Header</h4>
+                              <p>A bunch of text</p>
+                            </div>
+                        </div>
+                        </li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                </ul>
             </div>
-            <div class="timer">
-                <button id="min">Min</button>
-                <button id="sec">Sec</button>
-                <button id="start">Start</button>
+            <div class="col s12" id="timer">
+                <h3 class="grey-text text-darken-1">Timer</h3>
             </div>
         </div>
-    </aside>
-    <footer>
-
-    </footer>
+      </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="script.js"></script>
-    <section>
-        
-    </section>
 </body>
 </html>
