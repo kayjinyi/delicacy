@@ -1,3 +1,6 @@
+$(document).ready(function () {
+    $('.modal').modal();
+});
 
 // api connection details
 const options = {
@@ -73,4 +76,3 @@ fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=5&tags=under_10_min
         }  
         }
     // displayfavorite();
-
