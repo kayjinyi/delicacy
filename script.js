@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-var apiUrl = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityname + '&appid=' + APIKey;
-console.log(apiUrl);
-fetch(apiUrl).then(function(response){
-    return response.json()
-}).then(function(readableData){
-    console.log(readableData.)}
-=======
 // Start ======
 // Display Modal
 
@@ -48,7 +40,6 @@ randomBtn.addEventListener("click", getImage);
 
 // End ======
 
->>>>>>> acfc7ce1baea5e6e6098fb2d830b0abe99db784d
 // api connection details
 const options = {
     method: 'GET',
@@ -104,25 +95,27 @@ fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=5&tags=under_10_min
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
 
-    // var savedFavorites = function(recipe){
-    //     console.log(recipe);
-    //     favorites.push(recipe);
-    //     localStorage.setItem("favorites", JSON.stringify(favorites));
+    var savedFavorites = function(recipe){
+        console.log(recipe);
+        favorites.push(recipe);
+        localStorage.setItem("favorites", JSON.stringify(favorites));
     
-    //     var displayfavorite = function(){
-    //     favoriteTerm.innerHTML = "";
-    //     for( let i =0; i< favorites.length; i++){
-    //         var list = document.createElement("li");
-    //         list.textContent = favorites[i];
+        var displayfavorite = function(){
+        searchTerm.innerHTML = "";
+        for( let i =0; i< favorites.length; i++){
+            var list = document.createElement("li");
+            list.textContent = favorites[i];
 
-    //         list.addEventListener("click",function(event){
-    //             var favorites = event.target.textContent
-    //             getRecipte(recipe);   
-    //         })
-    //         favoriteTerm.append(list);
-    //     }  
-    //     }
-    // // displayfavorite();
+            list.addEventListener("click",function(event){
+                var favorites = event.target.textContent
+                getRecipte(recipe);   
+            })
+            searchTerm.append(list);
+        }  
+        }
+
+
+        
     var timeLeftEl = $('#timeLeft');
 var timeInEl = $('#timerIn')
 var startBtn = $('#startBtn')
