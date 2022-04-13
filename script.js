@@ -47,29 +47,33 @@ function getRecipe() {
                 
                 // recipeName[i].addEventListener("click", displayRecipe)
 
-                // makes any of the recipe names clickable
-                $("h4").click(function(event) {
-                    console.log(event.target.innerHTML)
-
-                    // TODO: somehow wanna make the stuff below work when above is clicked
-                })
                 
                 // TODO: go through instructions and display them on cards/modals THIS ONLY HAPPENS ONCE CAUSE IT'S IN THE FOR LOOP DUMMY
                 element.instructions.forEach(element => {
-
+                    
                     // make it an ordered list
                     recipeSpan.push(`<li class="white-text">${element.display_text}</li>`)
                     // console.log(element.display_text)
                 })
+
+                // adds instructions to instructions list array
                 var instructionsList = recipeSpan.join("")
                 // makes the card for the recipe to be sidplayed on
                 var recipeCard = `<div class="row"><div class="col s12 m5"><div class="card-panel teal"><ol>${instructionsList}</ol></div></div></div>`
                 console.log(recipeCard)
+
+                // makes any of the recipe names clickable
+                $("h4").click(function(event) {
+                    console.log(event.target.innerHTML)
+
+                    // TODO: show the card of the item clicked on
+                })
             }
         })
         .catch(err => console.error(err));
 }
 
+// does the function when recipe button is clicked
 recipeButton.addEventListener("click", getRecipe);
 
 
@@ -77,38 +81,3 @@ recipeButton.addEventListener("click", getRecipe);
 function displayRecipe() {
     console.log("woohoo")
 }
-
-// var FavoriteBtnEl = document.querySelector('#favoritefood');
-// var favoriteTerm = document.querySelector('#listGroup');
-// console.log("linked")
-// const options2 = {
-// 	method: 'GET',
-// 	headers: {'X-RapidAPI-Host': 'tasty.p.rapidapi.com', 'X-RapidAPI-Key': 'a17c383771mshbf161638102ae4ep17ad69jsn001a69ad58e8'}
-// };
-
-// fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=5&tags=under_10_minutes&q=steak', options2)
-// 	.then(response => response.json())
-// 	.then(response => console.log(response))
-// 	.catch(err => console.error(err));
-
-//     var savedFavorites = function(recipe){
-//         console.log(recipe);
-//         favorites.push(recipe);
-//         localStorage.setItem("favorites", JSON.stringify(favorites));
-    
-//         var displayfavorite = function(){
-//         searchTerm.innerHTML = "";
-//         for( let i =0; i< favorites.length; i++){
-//             var list = document.createElement("li");
-//             list.textContent = favorites[i];
-
-//             list.addEventListener("click",function(event){
-//                 var favorites = event.target.textContent
-//                 getRecipte(recipe);   
-//             })
-//             searchTerm.append(list);
-//         }  
-//         }
-//     }
-    
-    // displayfavorite();
