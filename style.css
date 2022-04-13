@@ -29,3 +29,11 @@ h3 {
 #timer {
     height: 40vh;
 }
+
+#time {
+    text-align: center;
+}
+
+span {
+    font-size: 50px;
+}

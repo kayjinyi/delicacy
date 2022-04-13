@@ -114,37 +114,60 @@ fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=5&tags=under_10_min
         }  
         }
 
+// Start
+// Timer Function
 
-        
-    var timeLeftEl = $('#timeLeft');
-var timeInEl = $('#timerIn')
-var startBtn = $('#startBtn')
-startBtn.on('click', startBtn, function(e){
-    e.preventDefault()
-    startTimer()
-});
 var timerCount = 0;
+var minute = 0;
+var second = 0;
+var minBtn = document.getElementById("min");
+var secBtn = document.getElementById("sec");
+var startBtn = document.getElementById("start");
+var resetBtn = document.getElementById("reset");
 
-function startTimer() {
-    console.log('started timer')
-    timerCount = 60* timeInEl.val();
-    var minutes = Math.floor(timerCount/60)
-    var seconds = Math.floor(timerCount)
-    timeLeftEl.text(minutes + " minutes left " + (seconds - minutes*60) + " seconds ");
-    timer = setInterval(function() {
-        if (timerCount==0) {
-           return
-          }
-        minutes = Math.floor(timerCount/60)
-        seconds = Math.floor(timerCount)
+function start() {
+    timerCount = (60 * minute) + second;
+    var timer = setInterval(function() {
         timerCount--;
-        timeLeftEl.text(minutes + " minutes left " + (seconds - minutes*60) + " seconds ");
-      // Tests if time has run out
-      if (timerCount === 0) {
-        // Clears interval
-        timeLeftEl.text("done");
-        clearInterval(timer);
-      }
+        minute = Math.floor(timerCount/60);
+        second = Math.floor(timerCount - minute*60);
+        document.getElementById('minute').innerHTML = minute;
+        document.getElementById('second').innerHTML = second;
+        if (timerCount <= 0) {
+            clearInterval(timer);
+            document.getElementById('minute').innerText = '0';
+            document.getElementById('second').innerText = '00';
+        }
     }, 1000);
-   }
-   
+}
+
+function min() {
+    minute++;
+    document.getElementById('minute').innerText = minute;
+}
+
+function sec() {
+    second++;
+    if (second >= 60) {
+        second = 0;
+        minute++
+    }
+    document.getElementById('second').innerText = second;
+    document.getElementById('minute').innerText = minute;
+}
+
+function reset() {
+    clearInterval(timer);
+    timerCount = 0;
+    minute = 0;
+    second = 0;
+    document.getElementById('minute').innerText = '0';
+    document.getElementById('second').innerText = '00';
+}
+
+minBtn.addEventListener("click", min);
+secBtn.addEventListener("click", sec);
+startBtn.addEventListener("click", start);
+resetBtn.addEventListener("click", reset);
+
+// End
