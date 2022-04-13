@@ -37,26 +37,35 @@ function getRecipe() {
                 // makes the card for the instructions span to be in
                 var recipeSpan = [];
                 
-                // makes list to click to show cards/modals w recipes TODO: make them clickable
+                // makes list to click to show cards/modals w recipes
                 var content = `<h4 class="recipeName">${element.name}</h4>`;
                 
+                // shows the recipe names on the page
                 recipeContainer.innerHTML += content;
                 
                 recipeName = document.getElementsByClassName("recipeName");
                 
-                recipeName[i].addEventListener("click", displayRecipe)
-                // TODO: go through instructions and display them on cards/modals
+                // recipeName[i].addEventListener("click", displayRecipe)
+
+                // makes any of the recipe names clickable
+                $("h4").click(function(event) {
+                    console.log(event.target.innerHTML)
+
+                    // TODO: somehow wanna make the stuff below work when above is clicked
+                })
+                
+                // TODO: go through instructions and display them on cards/modals THIS ONLY HAPPENS ONCE CAUSE IT'S IN THE FOR LOOP DUMMY
                 element.instructions.forEach(element => {
 
                     // make it an ordered list
                     recipeSpan.push(`<li class="white-text">${element.display_text}</li>`)
                     // console.log(element.display_text)
                 })
+                var instructionsList = recipeSpan.join("")
+                // makes the card for the recipe to be sidplayed on
+                var recipeCard = `<div class="row"><div class="col s12 m5"><div class="card-panel teal"><ol>${instructionsList}</ol></div></div></div>`
+                console.log(recipeCard)
             }
-            var instructionsList = recipeSpan.join("====")
-            // makes the card for the recipe to be sidplayed on
-            var recipeCard = `<div class="row"><div class="col s12 m5"><div class="card-panel teal"><ol>${instructionsList}</ol></div></div></div>`
-            console.log(recipeSpan)
         })
         .catch(err => console.error(err));
 }
