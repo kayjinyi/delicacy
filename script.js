@@ -59,7 +59,7 @@ var recipeContainer = document.getElementById("recipe-container");
 
 // function that gets recipe data from tasty api
 function getRecipe() {
-    console.log('tasty recipe function');
+    // console.log('tasty recipe function');
     // takes user input value for food search
     searchedFood = document.getElementById("food").value;
 
@@ -88,53 +88,16 @@ function getRecipe() {
 
                 document.getElementById(`recipe-title${i}`).textContent = element.name;
 
-                // TODO: go through instructions and display them on cards/modals
+                // go through instructions and display them on cards/modals
                 element.instructions.forEach(element => {
                     
                     // make it an ordered list
                     var listItems = document.createElement("li");
                     listItems.textContent = element.display_text
                     recipeSpan.push(`<li class="white-text">${element.display_text}</li>`)
-                    console.log(listItems, "list items")
+                    // console.log(listItems, "list items")
                     document.getElementById(`instructions-list${i}`).appendChild(listItems)
                 })
-
-                // adds instructions to instructions list array
-                // var instructionsList = recipeSpan.join("")
-                // makes the card for the recipe to be sidplayed on
-                // var recipeCard = `<div id="modal1" class="modal modal-fixed-footer"><div class="modal-content"><ol>${instructionsList}</ol></div></div>`
-                console.log(recipeSpan)
-
-                //sets the name of recipe in modal
-                // $("h4").click(function(event) {
-                //     document.getElementById(`recipe-title${i}`).textContent = event.target.innerHTML;
-                // })
-
-                // set the instructions content in each modal
-                // document.getElementById(`instructions-list${i}`).appendChild(recipeSpan)
-                //  var stinky = document.getElementById(`instructions-list${i}`)
-                //  console.log(stinky, "stinky")
-
-                // makes any of the recipe names clickable
-                // $("h4").click(function(event) {
-                //     console.log(event.target.innerHTML)
-
-                //     // TODO: only showing the last one again :(
-                //     document.getElementById("recipe-title").textContent = event.target.innerHTML;
-                //     // document.getElementById("instructions-list").append(recipeSpan)
-                //     // recipeSpan.forEach((element, i) => {
-                //     //     document.getElementById(`instructions-list${i}`).append(element)
-                //     //     console.log("this is i, ", i)
-                //     // })
-                    
-                //     for (let i = 0; i < recipeSpan.length; i++) {
-                //         const element = recipeSpan[i];
-                        
-                //         document.getElementById(`instructions-list${i}`).append(element)
-                //     }
-
-                //     // TODO: show the card of the item clicked on
-                // })
             }
         })
         .catch(err => console.error(err));
