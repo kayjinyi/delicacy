@@ -1,41 +1,57 @@
-// Start ======
-// Display Modal
+// Start
+// Timer Function
 
-$(document).ready(function () {
-    $('.modal').modal();
-});
+var timerCount = 0;
+var minute = 0;
+var second = 0;
+var minBtn = document.getElementById("min");
+var secBtn = document.getElementById("sec");
+var startBtn = document.getElementById("start");
+var resetBtn = document.getElementById("reset");
 
-// End ======
-
-// Start ======
-// Display a random pic from Spoonacular API
-
-const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
-        'X-RapidAPI-Key': 'a17c383771mshbf161638102ae4ep17ad69jsn001a69ad58e8'
-    }
-};
-
-var randomBtn = document.getElementById("random");
-var searchedFood = "";
-
-function getImage() {
-    searchedFood = document.getElementById("food").value;
-
-    fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query='+searchedFood+'&number=5', options)
-    .then(response => response.json())
-    .then(response => {
-        var i = Math.floor(Math.random() * 5);
-        var imageUrl = response.baseUri + response.results[i].image;
-        document.getElementById("img").src = imageUrl;
-        document.getElementById("img").style.height = '40vh';
-        document.getElementById("img").style.width = 'auto';
-    })
-    .catch(err => console.error(err))
+function start() {
+    timerCount = (60 * minute) + second;
+    var timer = setInterval(function() {
+        timerCount--;
+        minute = Math.floor(timerCount/60);
+        second = Math.floor(timerCount - minute*60);
+        document.getElementById('minute').innerHTML = minute;
+        document.getElementById('second').innerHTML = second;
+        if (timerCount <= 0) {
+            clearInterval(timer);
+            document.getElementById('minute').innerText = '0';
+            document.getElementById('second').innerText = '00';
+        }
+    }, 1000);
 }
-    
-randomBtn.addEventListener("click", getImage);
 
-// End ======
+function min() {
+    minute++;
+    document.getElementById('minute').innerText = minute;
+}
+
+function sec() {
+    second++;
+    if (second >= 60) {
+        second = 0;
+        minute++
+    }
+    document.getElementById('second').innerText = second;
+    document.getElementById('minute').innerText = minute;
+}
+
+function reset() {
+    clearInterval(timer);
+    timerCount = 0;
+    minute = 0;
+    second = 0;
+    document.getElementById('minute').innerText = '0';
+    document.getElementById('second').innerText = '00';
+}
+
+minBtn.addEventListener("click", min);
+secBtn.addEventListener("click", sec);
+startBtn.addEventListener("click", start);
+resetBtn.addEventListener("click", reset);
+
+// End
