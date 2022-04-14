@@ -117,31 +117,37 @@ function displayRecipe() {
     console.log("woohoo")
 }
 
-var FavoriteBtnEl = document.querySelector('#favoritefood');
-var favoriteTerm = document.querySelector('#listGroup');
+//Favorite button is clicked
 
-fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=5&tags=under_10_minutes&q=steak', options)
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
+var favoriteEl = document.querySelector('#favorite');
+// $('.favoriteBtn').on('click', savedFavorites);
 
-var savedFavorites = function (recipe) {
-    console.log(recipe);
-    favorites.push(recipe);
+// function savedFavorites() {
+//     console.log("click")
+// }
+
+$(".favoriteBtn").on("click", function (event) {
+    console.log(event.target);
+    var favorites = JSON.parse(localStorage.getItem("favorites"))||[];
+    var newFav = $(event.target).siblings("h5").text()
+    // $(event.target).siblings("h5").show()
+    favorites.push(newFav);
+    console.log(favorites);
     localStorage.setItem("favorites", JSON.stringify(favorites));
 
-    var displayfavorite = function () {
-        searchTerm.innerHTML = "";
-        for (let i = 0; i < favorites.length; i++) {
-            var list = document.createElement("li");
-            list.textContent = favorites[i];
+    displayfavorite()
+})
 
-            list.addEventListener("click", function (event) {
-                var favorites = event.target.textContent
-                getRecipe(recipe);
-            })
-            searchTerm.append(list);
-        }
+
+displayfavorite = function () {
+  
+    favoriteListEl = document.querySelector('#favoriteList')
+    favoriteListEl.innerHTML = "";
+    savedFavorites = JSON.parse(localStorage.getItem("favorites"));
+    for (let i = 0; i < savedFavorites.length; i++) {
+        var list = document.createElement("li");
+        list.textContent = savedFavorites[i];
+        favoriteListEl .append(list);
     }
 }
 // Start
