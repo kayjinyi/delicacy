@@ -147,6 +147,9 @@ displayfavorite = function () {
     savedFavorites = JSON.parse(localStorage.getItem("favorites"));
     for (let i = 0; i < savedFavorites.length; i++) {
         var list = document.createElement("li");
+        list.classList.add("grey-text");
+        list.classList.add("text-darken-1");
+        list.classList.add("favlist");
         list.textContent = savedFavorites[i];
         favoriteListEl .append(list);
     }

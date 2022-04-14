@@ -30,6 +30,10 @@ h3 {
     height: 40vh;
 }
 
+.favlist {
+    margin: 5px 0;
+}
+
 #timer {
     height: 30vh;
 }
