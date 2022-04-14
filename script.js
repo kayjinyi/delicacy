@@ -95,6 +95,7 @@ function getRecipe() {
                 document.getElementById(`recipe-title${i}`).textContent = element.name;
 
                 // go through instructions and display them on cards/modals
+                document.getElementById(`instructions-list${i}`).textContent = '';
                 element.instructions.forEach(element => {
 
                     // make it an ordered list
