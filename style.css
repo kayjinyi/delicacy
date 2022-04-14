@@ -1,0 +1,47 @@
+body {
+    padding: 0 180px;
+}
+
+h2, h3 {
+    margin: 0;
+}
+
+h3 {
+    padding: 5px;
+}
+
+#nav {
+    height: 10vh;
+}
+
+#pic {
+    height: 40vh;
+}
+
+#recipew {
+    height: 45vh;
+}
+
+#favorite {
+    height: 55vh;
+}
+
+#list {
+    height: 40vh;
+}
+
+.favlist {
+    margin: 5px 0;
+}
+
+#timer {
+    height: 30vh;
+}
+
+#time {
+    text-align: center;
+}
+
+span {
+    font-size: 50px;
+}
