@@ -68,6 +68,11 @@ function getRecipe() {
         .then(response => response.json())
         .then(response => {
 
+            // if there is stuff on the page, clear it before the for loop
+            if (recipeName != "") {
+                // remove old content
+                $(".recipeName").remove();
+            }
 
             // loops through results to show names and url's
             for (let i = 0; i < response.results.length; i++) {
@@ -129,6 +134,7 @@ $(".favoriteBtn").on("click", function (event) {
     favorites.push(newFav);
     console.log(favorites);
     localStorage.setItem("favorites", JSON.stringify(favorites));
+
     displayfavorite()
 })
 
