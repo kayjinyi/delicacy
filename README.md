@@ -18,6 +18,6 @@ When we refer to the Favorite section, it will show the recipe we are interested
 
 The following image shows the web application's appearance and functionality:
 
-![The delicacy app includes a random pic option and a recipe search option, a list of recipes, detailed recipe modals, a list of favorite recipes,and a timer to time cooking.](./delicacy.png)
+![The delicacy app includes a random pic option and a recipe search option, a list of recipes, detailed recipe modals, a list of favorite recipes,and a timer to time cooking.](./image.png)
 
 Deployed https://kayjinyi.github.io/delicacy/
