@@ -71,7 +71,8 @@ function getRecipe() {
             // if there is stuff on the page, clear it before the for loop
             if (recipeName != "") {
                 // remove old content
-                $(".recipeName").remove();
+                // $(".recipeName").remove();
+                recipeContainer.innerHTML = "";
             }
 
             // loops through results to show names and url's
@@ -84,7 +85,7 @@ function getRecipe() {
                 var recipeSpan = [];
 
                 // makes list to click to show cards/modals w recipes
-                var content = `<h4 class="recipeName modal-trigger" href="#modal${i}">${element.name}</h4>`;
+                var content = `<a class="recipeName modal-trigger waves-effect waves-light btn orange lighten-1" href="#modal${i}">${element.name}</a></br></br>`;
 
                 // shows the recipe names on the page
                 recipeContainer.innerHTML += content;
@@ -127,12 +128,12 @@ var favoriteEl = document.querySelector('#favorite');
 // }
 
 $(".favoriteBtn").on("click", function (event) {
-    console.log(event.target);
+    // console.log(event.target);
     var favorites = JSON.parse(localStorage.getItem("favorites"))||[];
     var newFav = $(event.target).siblings("h5").text()
     // $(event.target).siblings("h5").show()
     favorites.push(newFav);
-    console.log(favorites);
+    // console.log(favorites);
     localStorage.setItem("favorites", JSON.stringify(favorites));
 
     displayfavorite()
