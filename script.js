@@ -151,6 +151,21 @@ displayfavorite = function () {
         favoriteListEl .append(list);
     }
 }
+
+// Start
+// Clear button
+
+var clearBtn = document.getElementById("clear");
+
+function clearFavorite() {
+    localStorage.clear();
+    displayfavorite();
+}
+
+clearBtn.addEventListener("click", clearFavorite);
+
+// End
+
 // Start
 // Timer Function
 

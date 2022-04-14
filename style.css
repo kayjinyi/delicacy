@@ -26,6 +26,10 @@ h3 {
     height: 55vh;
 }
 
+#list {
+    height: 40vh;
+}
+
 #timer {
     height: 30vh;
 }
