@@ -21,3 +21,10 @@ The following image shows the web application's appearance and functionality:
 ![The delicacy app includes a random pic option and a recipe search option, a list of recipes, detailed recipe modals, a list of favorite recipes,and a timer to time cooking.](./image.png)
 
 Deployed https://kayjinyi.github.io/delicacy/
+
+## Technology
+Materialize CSS​
+
+Tasty API​
+
+Spoonacular API
